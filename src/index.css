@@ -42,3 +42,11 @@ code {
   margin-left: 10px;
   height: 25px;
 }
+
+.footer {
+  margin-left: 100px;
+}
+
+.footer button {
+  margin-right: 10px;
+}
