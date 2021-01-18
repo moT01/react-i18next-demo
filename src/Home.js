@@ -1,47 +1,54 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Trans, withTranslation } from 'react-i18next';
 
 class Home extends Component {
   constructor() {
     super();
 
     this.state = {
-      username: '',
-      submitted: false
+      nextUsername: '',
+      username: 'default user'
     };
   }
 
   updateUsername(e) {
     this.setState({
-      username: e.target.value
+      nextUsername: e.target.value
     })
   }
 
   setUsername() {
     this.setState({
-      submitted: true
+      username: this.state.nextUsername
     })
   }
 
   render() {
-    const { submitted, username } = this.state;
+    const { username } = this.state;
+    const { t } = this.props;
 
     return (
       <div className='body'>
-        {submitted ? (
-          <p>Welcome, {username}</p>
-        ) : (
-          <p>
-            <label>Enter your username:</label>
-            <input type='text' onChange={this.updateUsername.bind(this)} />
-            <button onClick={this.setUsername.bind(this)}>Submit</button>
-          </p>
-        )}
+          <p>{t('welcome', {username: username})}</p>
 
-        <p>Go to <Link to='/page2'>page 2</Link></p>
+          <div>
+            <label>{t('enter-username')}</label>
+            <input type='text' onChange={this.updateUsername.bind(this)} />
+            <button onClick={this.setUsername.bind(this)}>
+              {t('submit')}
+            </button>
+          </div>
+
+        <p>
+          <Trans i18nKey='go-to-page2'>
+            <Link to='/page2'></Link>
+            {{username}}
+          </Trans>
+        </p>
       </div>
     );
   }
 }
 
-export default Home;
+export default withTranslation()(Home);

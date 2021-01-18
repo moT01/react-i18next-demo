@@ -34,11 +34,19 @@ code {
   padding: 50px 100px;
 }
 
-.body p {
+.body p, .body div {
   height: 30px;
 }
 
 .body input, .body button {
   margin-left: 10px;
   height: 25px;
+}
+
+.footer {
+  margin-left: 100px;
+}
+
+.footer button {
+  margin-right: 10px;
 }
