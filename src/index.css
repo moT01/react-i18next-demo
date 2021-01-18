@@ -34,7 +34,7 @@ code {
   padding: 50px 100px;
 }
 
-.body p {
+.body p, .body div {
   height: 30px;
 }
 

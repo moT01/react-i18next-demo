@@ -6,39 +6,37 @@ class Home extends Component {
     super();
 
     this.state = {
-      username: '',
-      submitted: false
+      nextUsername: '',
+      username: 'default user'
     };
   }
 
   updateUsername(e) {
     this.setState({
-      username: e.target.value
+      nextUsername: e.target.value
     })
   }
 
   setUsername() {
     this.setState({
-      submitted: true
+      username: this.state.nextUsername
     })
   }
 
   render() {
-    const { submitted, username } = this.state;
+    const { username } = this.state;
 
     return (
       <div className='body'>
-        {submitted ? (
-          <p>Welcome, {username}</p>
-        ) : (
-          <p>
-            Enter your username:
-            <input type='text' onChange={this.updateUsername.bind(this)} />
-            <button onClick={this.setUsername.bind(this)}>Submit</button>
-          </p>
-        )}
+        <p>Welcome, {username}</p>
 
-        <p>Go to <Link to='/page2'>page 2</Link></p>
+        <div>
+          <label>Change your username:</label>
+          <input type='text' onChange={this.updateUsername.bind(this)} />
+          <button onClick={this.setUsername.bind(this)}>Submit</button>
+        </div>
+
+        <p>Click <Link to='/page2'>here</Link> to go to page 2, {username}</p>
       </div>
     );
   }
