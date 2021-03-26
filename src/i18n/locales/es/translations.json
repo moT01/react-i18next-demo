@@ -4,7 +4,7 @@
   "this-is-page2": "Esta es la <strong>página 2</strong>",
   "go-to-home": "Ir a la <0>pagina principal</0>",
   "welcome": "Bienvenido {{username}}",
-  "enter-username": "Ingrese su nombre de usuario:",
+  "change-username": "Cambia tu nombre de usuario:",
   "submit": "Enviar",
   "go-to-page2": "Haga clic <0>aquí</0> para ir a la página 2, {{username}}"
 }
